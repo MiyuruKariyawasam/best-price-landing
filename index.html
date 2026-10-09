@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MyBestPrice: Negotiate first, share contacts later</title>
+  <meta name="description" content="Sri Lanka's negotiation-first marketplace for property, vehicles and electronics. Make offers, Meet in the Middle, and share contact details only after you agree on a price. Free beta. Register now.">
+  <link rel="canonical" href="https://mybestprice.lk/">
+
+  <!-- Social sharing (WhatsApp / Facebook previews) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mybestprice.lk/">
+  <meta property="og:title" content="MyBestPrice: Negotiate first, share contacts later">
+  <meta property="og:description" content="Make offers, Meet in the Middle, and share contact details only after you agree on a price. Property, vehicles & electronics, island-wide. Free beta.">
+  <meta property="og:locale" content="en_LK">
+  <!-- TODO: add og:image (1200x630 PNG) once the logo is ready -->
+  <meta name="theme-color" content="#0f766e">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f766e'/%3E%3Cpath d='M18 40l14-16 14 16' stroke='%23fff' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+Sinhala:wght@400;600&family=Noto+Sans+Tamil:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-soft: #f4f7f6;
+      --surface: #ffffff;
+      --text: #10201d;
+      --muted: #52605d;
+      --border: #dfe7e5;
+      --brand: #0f766e;
+      --brand-strong: #0b5c56;
+      --brand-soft: #e3f3f1;
+      --accent: #f59e0b;
+      --accent-soft: #fff4dc;
+      --on-brand: #ffffff;
+      --shadow: 0 10px 30px rgba(16, 32, 29, 0.08);
+      --radius: 16px;
+      --font: "Inter", "Noto Sans Sinhala", "Noto Sans Tamil", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0d1513;
+        --bg-soft: #121d1b;
+        --surface: #16231f;
+        --text: #e7f0ee;
+        --muted: #a3b3af;
+        --border: #24342f;
+        --brand: #2dd4bf;
+        --brand-strong: #5eead4;
+        --brand-soft: #123330;
+        --accent: #fbbf24;
+        --accent-soft: #33290f;
+        --on-brand: #04201c;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #0d1513; --bg-soft: #121d1b; --surface: #16231f; --text: #e7f0ee; --muted: #a3b3af;
+      --border: #24342f; --brand: #2dd4bf; --brand-strong: #5eead4; --brand-soft: #123330;
+      --accent: #fbbf24; --accent-soft: #33290f; --on-brand: #04201c; --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--brand); }
+    img, svg { max-width: 100%; }
+    .wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+    /* Header */
+    header.site {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    header.site .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 12px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.15rem; color: var(--text); text-decoration: none; }
+    .logo-mark { width: 32px; height: 32px; border-radius: 9px; background: var(--brand); display: grid; place-items: center; flex: none; }
+    .logo-mark svg { width: 20px; height: 20px; }
+    .logo span b { color: var(--brand); }
+    .nav-cta { display: none; }
+    @media (min-width: 640px) { .nav-cta { display: inline-flex; } }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 22px; border-radius: 12px; font-weight: 700; font-size: 1rem;
+      text-decoration: none; border: 2px solid transparent; transition: transform .15s ease, background .15s ease;
+      min-height: 48px; text-align: center;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+    .btn-primary { background: var(--brand); color: var(--on-brand); }
+    .btn-primary:hover { background: var(--brand-strong); }
+    .btn-secondary { background: transparent; color: var(--brand); border-color: var(--brand); }
+    .btn-small { padding: 8px 14px; min-height: 40px; font-size: .9rem; }
+
+    /* Hero */
+    .hero { padding: 56px 0 40px; background: linear-gradient(180deg, var(--brand-soft), var(--bg)); }
+    .badge {
+      display: inline-block; padding: 6px 12px; border-radius: 999px;
+      background: var(--accent-soft); color: var(--text); font-weight: 600; font-size: .85rem; margin-bottom: 16px;
+    }
+    .hero h1 { font-size: clamp(2rem, 6vw, 3.4rem); line-height: 1.1; margin: 0 0 16px; letter-spacing: -0.02em; }
+    .hero h1 em { font-style: normal; color: var(--brand); }
+    .hero p.lead { font-size: clamp(1.05rem, 2.4vw, 1.25rem); color: var(--muted); max-width: 640px; margin: 0 0 28px; }
+    .cta-row { display: flex; flex-direction: column; gap: 12px; }
+    @media (min-width: 560px) { .cta-row { flex-direction: row; flex-wrap: wrap; } }
+    .hero .note { margin-top: 14px; font-size: .9rem; color: var(--muted); }
+
+    /* Sections */
+    section { padding: 56px 0; }
+    section.alt { background: var(--bg-soft); }
+    h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); line-height: 1.2; margin: 0 0 12px; letter-spacing: -0.01em; }
+    .section-intro { color: var(--muted); max-width: 640px; margin: 0 0 32px; }
+
+    .grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
+    @media (min-width: 640px) { .grid.two { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 860px) { .grid.three { grid-template-columns: repeat(3, 1fr); } .grid.four { grid-template-columns: repeat(4, 1fr); } }
+    @media (min-width: 560px) and (max-width: 859px) { .grid.four, .grid.three { grid-template-columns: repeat(2, 1fr); } }
+
+    .card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 22px; box-shadow: var(--shadow);
+    }
+    .card h3 { margin: 8px 0 6px; font-size: 1.1rem; }
+    .card p { margin: 0; color: var(--muted); }
+    .step-num {
+      width: 36px; height: 36px; border-radius: 10px; background: var(--brand-soft); color: var(--brand);
+      display: grid; place-items: center; font-weight: 800;
+    }
+    .icon { font-size: 1.6rem; line-height: 1; }
+
+    /* Meet in the middle demo */
+    .mitm { display: grid; gap: 16px; grid-template-columns: 1fr; align-items: center; }
+    @media (min-width: 860px) { .mitm { grid-template-columns: 1fr 1fr; } }
+    .scale { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); }
+    .scale-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 12px 0; border-bottom: 1px dashed var(--border); }
+    .scale-row:last-child { border-bottom: 0; }
+    .scale-row .who { color: var(--muted); font-weight: 600; }
+    .scale-row .amt { font-weight: 800; font-size: 1.2rem; white-space: nowrap; }
+    .scale-row.result { background: var(--brand-soft); margin: 8px -12px 0; padding: 14px 12px; border-radius: 12px; border-bottom: 0; }
+    .scale-row.result .amt { color: var(--brand); font-size: 1.5rem; }
+    .bar { position: relative; height: 10px; border-radius: 999px; background: var(--border); margin: 18px 0 6px; }
+    .bar .fill { position: absolute; left: 0; right: 0; top: 0; bottom: 0; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--brand)); opacity: .35; }
+    .bar .pin { position: absolute; top: 50%; width: 18px; height: 18px; border-radius: 50%; transform: translate(-50%, -50%); border: 3px solid var(--surface); }
+    .bar .pin.buyer { left: 0%; background: var(--accent); }
+    .bar .pin.mid { left: 50%; background: var(--brand); width: 24px; height: 24px; }
+    .bar .pin.seller { left: 100%; background: var(--text); }
+    .bar-labels { display: flex; justify-content: space-between; font-size: .8rem; color: var(--muted); }
+
+    /* Audience lists */
+    ul.ticks { list-style: none; padding: 0; margin: 12px 0 20px; }
+    ul.ticks li { padding-left: 30px; position: relative; margin: 10px 0; }
+    ul.ticks li::before {
+      content: "✓"; position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%;
+      background: var(--brand-soft); color: var(--brand); font-weight: 800; font-size: .8rem; display: grid; place-items: center;
+    }
+    .audience h3 { font-size: 1.35rem; margin: 0; }
+    .audience .tag { display: inline-block; font-size: .8rem; font-weight: 700; color: var(--brand); text-transform: uppercase; letter-spacing: .06em; }
+
+    /* Categories */
+    .cat { text-align: left; }
+    .cat .icon { font-size: 2rem; }
+    .pill { display: inline-block; margin-top: 10px; padding: 4px 10px; border-radius: 999px; background: var(--bg-soft); border: 1px solid var(--border); font-size: .8rem; color: var(--muted); }
+
+    /* Privacy highlight */
+    .privacy-band { display: grid; gap: 20px; grid-template-columns: 1fr; align-items: center; }
+    @media (min-width: 860px) { .privacy-band { grid-template-columns: 1.2fr 1fr; } }
+    .phone-mask {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow);
+      font-variant-numeric: tabular-nums;
+    }
+    .phone-mask .row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; gap: 12px; }
+    .phone-mask .row + .row { border-top: 1px solid var(--border); }
+    .phone-mask .num { font-weight: 800; letter-spacing: .05em; }
+    .phone-mask .state { font-size: .8rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+    .state.hidden { background: var(--accent-soft); color: var(--text); }
+    .state.shared { background: var(--brand-soft); color: var(--brand); }
+
+    /* FAQ */
+    details {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 4px 18px; margin: 10px 0;
+    }
+    summary { cursor: pointer; font-weight: 700; padding: 14px 0; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--brand); font-weight: 800; }
+    details[open] summary::after { content: "–"; }
+    details p { margin: 0 0 16px; color: var(--muted); }
+
+    /* Final CTA */
+    .final { text-align: center; background: var(--brand); color: var(--on-brand); border-radius: 24px; padding: 40px 20px; }
+    .final h2 { color: var(--on-brand); }
+    .final p { opacity: .9; max-width: 560px; margin: 0 auto 24px; }
+    .final .btn-primary { background: var(--on-brand); color: var(--brand); }
+    .final .btn-secondary { color: var(--on-brand); border-color: var(--on-brand); }
+    .final .cta-row { justify-content: center; }
+
+    /* Footer */
+    footer { padding: 32px 0 48px; color: var(--muted); font-size: .9rem; }
+    footer .wrap { display: grid; gap: 16px; }
+    footer .social { display: flex; flex-wrap: wrap; gap: 14px; }
+    footer .disclaimer { font-size: .8rem; max-width: 760px; }
+  </style>
+</head>
+<body>
+
+<!--
+  ============================================================
+  BEFORE PUBLISHING: replace these placeholders everywhere:
+    SELLER_FORM_URL   -> link to the seller registration form
+    BUYER_FORM_URL    -> link to the buyer waitlist form
+    FACEBOOK_URL / INSTAGRAM_URL / TIKTOK_URL / WHATSAPP_CHANNEL_URL
+  See README.md in this repo.
+  ============================================================
+-->
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="MyBestPrice home">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 15l7-7 7 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="color: var(--on-brand)"/></svg>
+      </span>
+      <span>My<b>Best</b>Price</span>
+    </a>
+    <a class="btn btn-primary btn-small nav-cta" href="SELLER_FORM_URL">Become a Founding Seller</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="badge">🇱🇰 Free beta · Property · Vehicles · Electronics</span>
+      <h1>Negotiate first.<br><em>Share contacts later.</em></h1>
+      <p class="lead">
+        MyBestPrice is Sri Lanka's negotiation-first marketplace. Buyers make offers, sellers choose, and either side can
+        <strong>Meet in the Middle</strong>. Phone numbers stay private until you agree on a price.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="SELLER_FORM_URL">I want to sell: become a Founding Seller</a>
+        <a class="btn btn-secondary" href="BUYER_FORM_URL">I want to buy: join the beta</a>
+      </div>
+      <p class="note">Free during the beta. Sellers join by invitation; buyers are welcome to join.</p>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <p class="section-intro">No more "last price?" phone calls. Everything up to the agreed price happens inside MyBestPrice.</p>
+      <div class="grid four">
+        <div class="card">
+          <div class="step-num">1</div>
+          <h3>Ask anything, free</h3>
+          <p>Buyers ask questions about the item before making an offer, without seeing the seller's number.</p>
+        </div>
+        <div class="card">
+          <div class="step-num">2</div>
+          <h3>Make an offer</h3>
+          <p>Buyers send serious offers. Sellers compare all offers side by side and choose.</p>
+        </div>
+        <div class="card">
+          <div class="step-num">3</div>
+          <h3>Counter or meet in the middle</h3>
+          <p>Counter with your price, or tap <strong>Meet in the Middle</strong> to split the difference in one step.</p>
+        </div>
+        <div class="card">
+          <div class="step-num">4</div>
+          <h3>Agree, then connect</h3>
+          <p>Once you both agree on a price, contact details are shared and you complete the sale directly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet in the middle -->
+  <section class="alt" id="meet-in-the-middle">
+    <div class="wrap mitm">
+      <div>
+        <h2>Meet in the Middle, in one tap</h2>
+        <p class="section-intro">
+          Haggling back and forth is tiring. When you're close, either side can tap <strong>Meet in the Middle</strong>
+          and MyBestPrice suggests the fair midpoint. Accept it, and you have a deal.
+        </p>
+      </div>
+      <div class="scale" role="figure" aria-label="Example: seller asks Rs. 100,000, buyer offers Rs. 80,000, meet in the middle at Rs. 90,000">
+        <div class="scale-row"><span class="who">Seller asks</span><span class="amt">Rs. 100,000</span></div>
+        <div class="scale-row"><span class="who">Buyer offers</span><span class="amt">Rs. 80,000</span></div>
+        <div class="bar" aria-hidden="true">
+          <div class="fill"></div>
+          <span class="pin buyer"></span><span class="pin mid"></span><span class="pin seller"></span>
+        </div>
+        <div class="bar-labels" aria-hidden="true"><span>Rs. 80,000</span><span>Rs. 100,000</span></div>
+        <div class="scale-row result"><span class="who">🤝 Meet in the Middle</span><span class="amt">Rs. 90,000</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy -->
+  <section id="privacy-first">
+    <div class="wrap privacy-band">
+      <div>
+        <h2>Your number stays private until you agree</h2>
+        <p class="section-intro">
+          On most sites your phone number is on the ad for everyone to see. On MyBestPrice, nobody gets your contact details
+          until you've agreed on a price. Sellers get fewer time-wasters, and buyers avoid awkward calls.
+        </p>
+      </div>
+      <div class="phone-mask" aria-label="Example of contact privacy">
+        <div class="row"><span>While negotiating</span><span class="num">07X XXX XXXX</span><span class="state hidden">Hidden</span></div>
+        <div class="row"><span>After you both agree</span><span class="num">Call · WhatsApp</span><span class="state shared">Shared</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- For sellers / buyers -->
+  <section class="alt" id="who">
+    <div class="wrap grid two">
+      <div class="card audience">
+        <span class="tag">For sellers</span>
+        <h3>Get real offers, not endless calls</h3>
+        <ul class="ticks">
+          <li>No spam calls: buyers can't see your number until you agree on a price</li>
+          <li>Serious offers only: buyers use limited offer tokens, so no throwaway lowballs</li>
+          <li>Compare every offer side by side and pick the best</li>
+          <li>Free during the beta, plus a <strong>Founding Seller</strong> badge</li>
+        </ul>
+        <a class="btn btn-primary" href="SELLER_FORM_URL">Register as a Founding Seller</a>
+      </div>
+      <div class="card audience">
+        <span class="tag">For buyers</span>
+        <h3>Get a fair price, without the awkwardness</h3>
+        <ul class="ticks">
+          <li>Ask the seller anything before you offer, for free</li>
+          <li>Make offers and negotiate in the app, no haggling calls</li>
+          <li>Use Meet in the Middle to close the gap quickly</li>
+          <li>Free tokens for every beta member</li>
+        </ul>
+        <a class="btn btn-secondary" href="BUYER_FORM_URL">Join the buyer beta</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section id="categories">
+    <div class="wrap">
+      <h2>Starting with three categories, island-wide</h2>
+      <p class="section-intro">The items where negotiating matters most. All 25 districts, from day one.</p>
+      <div class="grid three">
+        <div class="card cat">
+          <div class="icon" aria-hidden="true">🏡</div>
+          <h3>Property</h3>
+          <p>Land, houses, apartments and commercial property for sale.</p>
+          <span class="pill">Verified sellers</span>
+        </div>
+        <div class="card cat">
+          <div class="icon" aria-hidden="true">🚗</div>
+          <h3>Vehicles</h3>
+          <p>Cars, vans, SUVs, motorbikes, three-wheelers and lorries.</p>
+          <span class="pill">Verified sellers</span>
+        </div>
+        <div class="card cat">
+          <div class="icon" aria-hidden="true">📱</div>
+          <h3>Electronics</h3>
+          <p>Mobile phones, laptops, TVs, cameras, audio and tablets.</p>
+          <span class="pill">Fast-moving deals</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="alt" id="faq">
+    <div class="wrap">
+      <h2>Questions</h2>
+      <details>
+        <summary>Is MyBestPrice free?</summary>
+        <p>Yes. During the beta, listings and offer tokens are completely free. We'll tell you well in advance before any fees start.</p>
+      </details>
+      <details>
+        <summary>Does MyBestPrice handle the payment for the item?</summary>
+        <p>No. MyBestPrice helps you agree on a price and then connects you. The sale itself (inspection, payment and handover) happens directly between you and the other person. MyBestPrice isn't a party to the sale.</p>
+      </details>
+      <details>
+        <summary>When are contact details shared?</summary>
+        <p>Only after both buyer and seller agree on a price and confirm. Until then, neither side can see the other's phone number.</p>
+      </details>
+      <details>
+        <summary>What are offer tokens?</summary>
+        <p>Buyers use a small number of tokens to make an offer, so sellers know offers are serious. Asking questions is free. During the beta, every buyer gets free tokens.</p>
+      </details>
+      <details>
+        <summary>Why do sellers join by invitation?</summary>
+        <p>We're onboarding a limited group of Founding Sellers personally, to make sure listings are genuine and good quality. Register and we'll contact you.</p>
+      </details>
+      <details>
+        <summary>When does the beta start?</summary>
+        <p>Soon. Register or join the waitlist and you'll be among the first to get an invite.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section>
+    <div class="wrap">
+      <div class="final">
+        <h2>Be part of the beta</h2>
+        <p>Help shape a fairer way to buy and sell in Sri Lanka.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="SELLER_FORM_URL">Become a Founding Seller</a>
+          <a class="btn btn-secondary" href="BUYER_FORM_URL">Join the buyer beta</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="social">
+      <a href="FACEBOOK_URL">Facebook</a>
+      <a href="INSTAGRAM_URL">Instagram</a>
+      <a href="TIKTOK_URL">TikTok</a>
+      <a href="WHATSAPP_CHANNEL_URL">WhatsApp Channel</a>
+      <a href="mailto:hello@mybestprice.lk">hello@mybestprice.lk</a>
+      <a href="privacy.html">Privacy Notice</a>
+    </div>
+    <p class="disclaimer">
+      MyBestPrice helps buyers and sellers agree on a price and then shares their contact details. The sale, payment and
+      handover happen directly between users. MyBestPrice is not a party to any sale and does not handle payments for items.
+    </p>
+    <p>© <span id="y">2026</span> MyBestPrice · mybestprice.lk</p>
+  </div>
+</footer>
+
+<script>
+  // Keep the copyright year current; the page works fully without this.
+  try { document.getElementById('y').textContent = new Date().getFullYear(); } catch (e) {}
+</script>
+</body>
+</html>
