@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="60" viewBox="0 0 100 60" role="img"><title>MyBestPrice</title>
+<g transform="translate(0 -20) scale(1)">
+<path fill-rule="evenodd" fill="#0F5C5C" d="M14 28 H50 L70 50 L50 72 H14 A10 10 0 0 1 4 62 V38 A10 10 0 0 1 14 28 Z M20.5 50 A4.5 4.5 0 1 0 11.5 50 A4.5 4.5 0 1 0 20.5 50 Z"/>
+<path fill-rule="evenodd" fill="#F5A524" d="M86 28 H50 L30 50 L50 72 H86 A10 10 0 0 0 96 62 V38 A10 10 0 0 0 86 28 Z M88.5 50 A4.5 4.5 0 1 0 79.5 50 A4.5 4.5 0 1 0 88.5 50 Z"/>
+<path fill="#0B2F2F" d="M30 50 L50 28 L70 50 L50 72 Z"/>
+<polyline points="41,50 47,56 59,44" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>

@@ -10,6 +10,9 @@ Buyers make offers, sellers choose, and either side can **Meet in the Middle**. 
 |---|---|
 | `index.html` | Landing page |
 | `privacy.html` | Privacy notice |
+| `assets/` | Logo and icon (SVG, light and dark versions) |
+| `favicon.*`, `*-icon*.png`, `site.webmanifest` | Browser and phone icons, web app manifest |
+| `og-image.png` | Link preview image (1200×630) |
 | `CNAME` | Custom domain for GitHub Pages |
 | `.nojekyll` | Serve files as-is on GitHub Pages |
 

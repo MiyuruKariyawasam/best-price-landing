@@ -2,27 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Privacy Notice · MyBestPrice</title>
   <meta name="description" content="How MyBestPrice handles the details you share when you register as a seller or join the buyer beta.">
   <link rel="canonical" href="https://mybestprice.lk/privacy.html">
-  <meta name="theme-color" content="#0f766e">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f766e'/%3E%3Cpath d='M18 40l14-16 14 16' stroke='%23fff' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#0B2F2F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #ffffff; --surface: #f4f7f6; --text: #10201d; --muted: #52605d; --border: #dfe7e5; --brand: #0f766e;
-      --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Sinhala", "Noto Sans Tamil", sans-serif;
+      --bg: #ffffff; --surface: #F3F8F6; --text: #0B2F2F; --muted: #4A6563; --border: #DCE8E4; --brand: #0F5C5C; --saffron: #F5A524;
+      --font: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Sinhala", "Noto Sans Tamil", sans-serif;
     }
     @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) { --bg: #0d1513; --surface: #16231f; --text: #e7f0ee; --muted: #a3b3af; --border: #24342f; --brand: #2dd4bf; }
+      :root:not([data-theme="light"]) { --bg: #072121; --surface: #0B2F2F; --text: #F3F8F6; --muted: #A9C2BD; --border: #174545; --brand: #2FA394; }
     }
-    :root[data-theme="dark"] { --bg: #0d1513; --surface: #16231f; --text: #e7f0ee; --muted: #a3b3af; --border: #24342f; --brand: #2dd4bf; }
+    :root[data-theme="dark"] { --bg: #072121; --surface: #0B2F2F; --text: #F3F8F6; --muted: #A9C2BD; --border: #174545; --brand: #2FA394; }
     *, *::before, *::after { box-sizing: border-box; }
-    body { margin: 0; font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.7; }
+    body { margin: 0; font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.7; -webkit-text-size-adjust: 100%; overflow-wrap: break-word; }
     a { color: var(--brand); }
-    .wrap { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
-    .back { display: inline-block; margin-bottom: 24px; font-weight: 600; text-decoration: none; }
-    h1 { font-size: clamp(1.7rem, 5vw, 2.3rem); line-height: 1.2; margin: 0 0 6px; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 24px max(16px, env(safe-area-inset-right)) 64px max(16px, env(safe-area-inset-left)); }
+    .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+    .logo img { display: block; height: 28px; width: auto; }
+    .logo .on-dark { display: none; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .logo .on-light { display: none; }
+      :root:not([data-theme="light"]) .logo .on-dark { display: block; }
+    }
+    :root[data-theme="dark"] .logo .on-light { display: none; }
+    :root[data-theme="dark"] .logo .on-dark { display: block; }
+    .back { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; text-decoration: none; }
+    h1 { font-size: clamp(1.7rem, 5vw, 2.3rem); line-height: 1.2; margin: 0 0 6px; font-weight: 800; }
+    h1::after { content: ""; display: block; width: 40px; height: 4px; border-radius: 2px; background: var(--saffron); margin-top: 12px; }
     .updated { color: var(--muted); margin: 0 0 28px; }
     h2 { font-size: 1.15rem; margin: 28px 0 6px; }
     p, li { color: var(--text); }
@@ -33,7 +49,13 @@
 </head>
 <body>
   <div class="wrap">
-    <a class="back" href="index.html">← Back to MyBestPrice</a>
+    <div class="top">
+      <a class="logo" href="index.html" aria-label="MyBestPrice home">
+        <img class="on-light" src="assets/mybestprice-logo.svg" alt="MyBestPrice" width="160" height="28">
+        <img class="on-dark" src="assets/mybestprice-logo-white.svg" alt="" width="160" height="28" aria-hidden="true">
+      </a>
+      <a class="back" href="index.html">← Back to home</a>
+    </div>
 
     <h1>Privacy Notice</h1>
     <p class="updated">Pre-launch registrations · Last updated: [DATE]</p>
